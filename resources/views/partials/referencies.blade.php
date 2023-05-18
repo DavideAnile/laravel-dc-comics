@@ -3,7 +3,7 @@
         <div class="right-container">
 
             <div class="list-container">
-                @foreach($referencies as $singleReference)
+                @foreach(config('referencies') as $singleReference)
                 <div  class="link-container">
                     <ul>
                         <li class="links-title">{{$singleReference['title']}}</li>

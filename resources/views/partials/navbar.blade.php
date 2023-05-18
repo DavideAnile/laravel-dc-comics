@@ -11,7 +11,7 @@
             <img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="Logo DC">
         </div>
         <ul>
-            @foreach($links as $singleLink)
+            @foreach(config('links') as $singleLink)
                 <li><a href="">{{$singleLink}}</a></li>
             @endforeach
             

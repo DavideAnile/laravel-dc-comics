@@ -112,6 +112,7 @@ main{
 
     background-color: #1c1c1c;
     color: white;
+    padding-bottom: 30px;
 
     .content{
         position: relative;
@@ -137,6 +138,10 @@ main{
 
     .card-container{
         width: calc(100% / 6 - (40px / 6 * 5));
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
         
         
     
@@ -164,6 +169,14 @@ main{
             text-align: center;
             text-transform: uppercase;
         }
+
+        .details{
+
+            a{
+                color: white;
+                text-decoration: none;
+            }
+        }
     }
 
     }
@@ -182,6 +195,20 @@ main{
             font-size: 1em;
             cursor: pointer;
         }
+    }
+
+    .add-comic{
+        display: flex;
+        justify-content: center;
+        
+        a{
+            color: white;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        
+
+        
     }
 }
 
@@ -390,6 +417,10 @@ main{
                 left: 0;
                 top: -200px;
                 width: 150px;
+                height: 230px;
+                object-fit: cover;
+                
+                
                 
             }
         }
