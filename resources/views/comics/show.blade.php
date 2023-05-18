@@ -38,6 +38,14 @@
 <div class="d-flex my-4 justify-content-center gap-5">
     <div><a href="{{route('comics.index')}}">TORNA ALLA HOME DEI FUMETTI</a></div>
     <div class="edit"><a href="{{route('comics.edit', $comic->id)}}">VAI ALL'EDIT DEL FUMETTO</a></div>
+    <div><form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button class="btn btn-danger" type="submit">ELIMINA FUMETTO</button>
+    </form></div>
 
 </div>
+
+
+
 @endsection
