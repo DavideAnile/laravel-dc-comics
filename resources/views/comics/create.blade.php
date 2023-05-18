@@ -24,7 +24,7 @@
     
         <div class="mb-3">
             <label for="price">Prezzo Fumetto</label>
-            <input class="form-control" type="number" name="price" id="price">
+            <input class="form-control" type="text" name="price" id="price">
         </div>
     
         <div class="mb-3">

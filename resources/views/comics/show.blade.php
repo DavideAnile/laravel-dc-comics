@@ -27,13 +27,17 @@
             <div class="second">
                 <h2>Specs</h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores, minima voluptas enim cupiditate, aut eum itaque et repellat voluptatibus impedit labore mollitia? Ex unde delectus a, veniam eius adipisci ab.</p>
-                <div>Series : <span>BATGIRL</span></div>
-                <div>U.S Price : 19.99$</div>
+                <div>Series : <span>{{$comic->series}}</span></div>
+                <div>U.S Price : {{$comic->price}}</div>
                 
             </div>
         </div>
     </div>
 </div>
 
-<div class="container my-3 text-center"><a href="{{route('comics.index')}}">TORNA ALLA HOME DEI FUMETTI</a></div>
+<div class="d-flex my-4 justify-content-center gap-5">
+    <div><a href="{{route('comics.index')}}">TORNA ALLA HOME DEI FUMETTI</a></div>
+    <div class="edit"><a href="{{route('comics.edit', $comic->id)}}">VAI ALL'EDIT DEL FUMETTO</a></div>
+
+</div>
 @endsection
