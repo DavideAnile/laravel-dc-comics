@@ -15,7 +15,7 @@ class ComicController extends Controller
     public function index()
     {
         //qua si visualizza la lista dei fumetti
-        return 'ciao';
+        return view('comics/index');
 
     }
 
