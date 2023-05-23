@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
@@ -43,9 +44,9 @@ class ComicController extends Controller
     {
 
         
-        $this->validation($request);
-
+        
         $formData = $request->all();
+        $this->validation($formData);
 
         $formData['price'] = '$' . number_format($formData['price'], 2);
         
@@ -98,10 +99,10 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
 
-        $this->validation($request);
-
+        
         $formData = $request->all();
-
+        
+        $this->validation($formData);
         $comic->update($formData);
 
         $comic->save();
@@ -123,9 +124,10 @@ class ComicController extends Controller
     }
 
 
-    private function validation($request){
+    private function validation($formData){
 
-        $request->validate([
+        $validator = Validator::make($formData, [
+
             'title' => 'required|max:100',
             'description' => 'nullable',
             'thumb' => 'nullable',
@@ -134,7 +136,15 @@ class ComicController extends Controller
             'sale_date' => 'required',
             'type' => 'nullable'
 
-        ]);
+        ] , [
+
+            'title.required' => 'Devi Inserire un titolo!',
+            'title.max' => 'Il titolo può contenere un massimo di :max caratteri!',
+            'price.required' => 'Devi inserire il prezzo!',
+            'series.required' => 'Devi inserire il nome della serie!',
+            'sale_date.required' => 'Inserisci la data di rilascio del fumetto!'
+
+        ])->validate();
 
     }
 }
